@@ -235,7 +235,7 @@ Kalau ada yang bingung, chat aja 👋`,
 
 // Encoded download link (Base64) - REPLACE THIS WITH YOUR ACTUAL LINK
 // To encode: btoa("https://drive.google.com/your-link")
-export const encodedGiftLink = "aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL3lvdXItbGluay1oZXJl";
+export const encodedGiftLink = "https://drive.google.com/file/d/1jQD2QBNF3tGz3IUng_SPXNS9DHjwzPJf/view?usp=sharing";
 
 // Decode function
 export const getGiftLink = () => {
