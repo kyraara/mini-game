@@ -1,0 +1,642 @@
+@import "tailwindcss";
+
+/* Google Font - Outfit */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* Custom Theme */
+:root {
+  --pink-primary: #FF6B9D;
+  --pink-light: #FFB3D1;
+  --pink-dark: #E91E63;
+  --purple-accent: #9C27B0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 50%, #f48fb1 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+
+  75% {
+    transform: translateY(-12px) rotate(-2deg);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 4px 20px rgba(255, 107, 157, 0.4);
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow: 0 6px 30px rgba(255, 107, 157, 0.6);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bubble-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(15px);
+  }
+
+  60% {
+    transform: scale(1.03) translateY(-3px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+
+  70% {
+    transform: scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes correct-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 0 12px rgba(76, 175, 80, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+  }
+}
+
+@keyframes wrong-shake {
+
+  0%,
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+
+  15% {
+    transform: translateX(-12px) rotate(-3deg);
+  }
+
+  30% {
+    transform: translateX(10px) rotate(2deg);
+  }
+
+  45% {
+    transform: translateX(-8px) rotate(-2deg);
+  }
+
+  60% {
+    transform: translateX(6px) rotate(1deg);
+  }
+
+  75% {
+    transform: translateX(-4px) rotate(-1deg);
+  }
+}
+
+@keyframes typing {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes heart-rise {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: translateY(-80px) scale(1.2) rotate(15deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-160px) scale(0.8) rotate(-10deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes heart-beat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  15% {
+    transform: scale(1.15);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.1);
+  }
+}
+
+/* ==================== UTILITY CLASSES ==================== */
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-bubble-in {
+  animation: bubble-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-correct {
+  animation: correct-pulse 0.7s ease-out;
+}
+
+.animate-wrong {
+  animation: wrong-shake 0.6s ease-in-out;
+}
+
+.animate-typing {
+  animation: typing 1.4s ease-in-out infinite;
+}
+
+.animate-heart-beat {
+  animation: heart-beat 1s ease-in-out infinite;
+}
+
+/* ==================== GLASSMORPHISM CARD ==================== */
+.glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 28px;
+  box-shadow:
+    0 8px 32px rgba(233, 30, 99, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 40px rgba(233, 30, 99, 0.15),
+    0 6px 20px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* ==================== CHAT BUBBLES ==================== */
+.chat-bubble-received {
+  background: white;
+  border-radius: 24px 24px 24px 8px;
+  box-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.06),
+    0 1px 4px rgba(0, 0, 0, 0.04);
+  padding: 16px 20px;
+  max-width: 85%;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.chat-bubble-received:hover {
+  transform: scale(1.01);
+}
+
+.chat-bubble-sent {
+  background: linear-gradient(135deg, #FF6B9D 0%, #E91E63 100%);
+  color: white;
+  border-radius: 24px 24px 8px 24px;
+  box-shadow:
+    0 4px 16px rgba(233, 30, 99, 0.3),
+    0 2px 8px rgba(233, 30, 99, 0.2);
+  padding: 16px 20px;
+  max-width: 85%;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.chat-bubble-sent:hover {
+  transform: scale(1.01);
+}
+
+/* ==================== BUTTONS ==================== */
+.btn-primary {
+  background: linear-gradient(135deg, #FF6B9D 0%, #E91E63 100%);
+  color: white;
+  border: none;
+  padding: 18px 48px;
+  border-radius: 60px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 6px 24px rgba(233, 30, 99, 0.35),
+    0 2px 8px rgba(233, 30, 99, 0.2);
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow:
+    0 10px 32px rgba(233, 30, 99, 0.4),
+    0 4px 12px rgba(233, 30, 99, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(-2px) scale(1);
+}
+
+/* ==================== OPTION BUTTONS ==================== */
+.option-btn {
+  background: white;
+  border: 2px solid #FFB3D1;
+  padding: 18px 24px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.option-btn::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(180deg, #FF6B9D, #E91E63);
+  transform: scaleY(0);
+  transition: transform 0.25s ease;
+}
+
+.option-btn:hover::before {
+  transform: scaleY(1);
+}
+
+.option-btn:hover {
+  border-color: #FF6B9D;
+  background: linear-gradient(90deg, #fff5f8 0%, #fff 100%);
+  transform: translateX(8px);
+  box-shadow: 0 4px 16px rgba(233, 30, 99, 0.12);
+}
+
+.option-btn.correct {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: white;
+  border-color: #4CAF50;
+  transform: scale(1.02);
+}
+
+.option-btn.correct::before {
+  display: none;
+}
+
+.option-btn.wrong {
+  background: #fff5f5;
+  border-color: #ef5350;
+  animation: wrong-shake 0.5s ease;
+}
+
+/* ==================== PROGRESS BAR ==================== */
+.progress-bar {
+  height: 10px;
+  background: rgba(255, 179, 209, 0.4);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF6B9D 0%, #E91E63 50%, #FF6B9D 100%);
+  background-size: 200% 100%;
+  border-radius: 12px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 12px rgba(233, 30, 99, 0.4);
+  animation: shimmer 2s linear infinite;
+}
+
+/* ==================== HEART FLOAT ==================== */
+.heart-float {
+  position: fixed;
+  font-size: 28px;
+  animation: heart-rise 2.5s ease-out forwards;
+  pointer-events: none;
+  z-index: 100;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* ==================== HEADER ==================== */
+.game-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 20px 24px;
+  box-shadow:
+    0 2px 20px rgba(0, 0, 0, 0.05),
+    0 1px 3px rgba(0, 0, 0, 0.02);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid rgba(255, 179, 209, 0.2);
+}
+
+/* ==================== CHAT CONTAINER ==================== */
+.chat-container {
+  flex: 1;
+  padding: 24px 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-messages {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ==================== OPTIONS CONTAINER ==================== */
+.options-container {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 24px 16px;
+  border-top: 1px solid rgba(255, 179, 209, 0.2);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.options-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ==================== TYPING INDICATOR ==================== */
+.typing-dots {
+  display: flex;
+  gap: 6px;
+  padding: 4px 0;
+}
+
+.typing-dot {
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(135deg, #FFB3D1, #FF6B9D);
+  border-radius: 50%;
+  animation: typing 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 640px) {
+  .glass-card {
+    margin: 16px;
+    padding: 28px 20px !important;
+    border-radius: 24px;
+  }
+
+  .btn-primary {
+    padding: 16px 32px;
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .option-btn {
+    padding: 16px 20px;
+    font-size: 0.95rem;
+  }
+
+  .chat-bubble-received,
+  .chat-bubble-sent {
+    padding: 14px 18px;
+    max-width: 88%;
+  }
+
+  .game-header {
+    padding: 16px 20px;
+  }
+
+  .chat-container {
+    padding: 20px 12px;
+  }
+
+  .options-container {
+    padding: 20px 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  .glass-card {
+    padding: 48px 56px !important;
+  }
+
+  .chat-messages {
+    max-width: 650px;
+  }
+
+  .options-wrapper {
+    max-width: 650px;
+  }
+}
+
+/* ==================== SCROLLBAR ==================== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 107, 157, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 107, 157, 0.5);
+}
+
+/* ==================== SELECTION ==================== */
+::selection {
+  background: rgba(255, 107, 157, 0.3);
+  color: inherit;
+}
+
+/* ==================== FOCUS STYLES ==================== */
+button:focus-visible {
+  outline: 3px solid rgba(255, 107, 157, 0.5);
+  outline-offset: 2px;
+}
+
+/* ==================== LOADING SKELETON ==================== */
+.skeleton {
+  background: linear-gradient(90deg,
+      rgba(255, 179, 209, 0.2) 25%,
+      rgba(255, 179, 209, 0.4) 50%,
+      rgba(255, 179, 209, 0.2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
