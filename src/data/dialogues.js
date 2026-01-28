@@ -233,9 +233,9 @@ Kalau ada yang bingung, chat aja 👋`,
     closing: "Enjoy! 🎁"
 };
 
-// Encoded download link (Base64) - REPLACE THIS WITH YOUR ACTUAL LINK
-// To encode: btoa("https://drive.google.com/your-link")
-export const encodedGiftLink = "https://drive.google.com/file/d/1jQD2QBNF3tGz3IUng_SPXNS9DHjwzPJf/view?usp=sharing";
+// Encoded download link (Base64)
+// Link asli: https://drive.google.com/file/d/1jQD2QBNF3tGz3IUng_SPXNS9DHjwzPJf/view?usp=sharing
+export const encodedGiftLink = "aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xalFEMlFCTkYzdEd6M0lVbmdfU1BYTlM5REhqd3pQSmYvdmlldz91c3A9c2hhcmluZw==";
 
 // Decode function
 export const getGiftLink = () => {
